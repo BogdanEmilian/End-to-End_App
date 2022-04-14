@@ -56,22 +56,22 @@ void GameOfLife::setValue(int i,int j)
 	if ((_map[i][j-1] == true) && (j - 1 >= 0)) 
 		neighbour++;
 
-	if ((_map[i+1][j-1] == true) && (i + 1 < n) && (j - 1 >= 0)) 
+	if ((_map[i+1][j-1] == true) && (i + 1 < _n) && (j - 1 >= 0)) 
 		neighbour++;
 
 	if ((_map[i-1][j] == true) && (i - 1 >= 0)) 
 		neighbour++;
 	
-	if ((_map[i+1][j] == true) && (i + 1 < n)) 
+	if ((_map[i+1][j] == true) && (i + 1 < _n)) 
 		neighbour++;
 	
-	if ((_map[i-1][j+1] == true) && (i - 1 >= 0) && (j + 1 < n)) 
+	if ((_map[i-1][j+1] == true) && (i - 1 >= 0) && (j + 1 < _n)) 
 		neighbour++;
 	
-	if ((_map[i+1][j+1] == true) && (i + 1 < n) && (j + 1 < n)) 
+	if ((_map[i+1][j+1] == true) && (i + 1 < _n) && (j + 1 < _n)) 
 		neighbour++;
 	
-	if ((_map[i][j+1] == true) && (j + 1 <n)) 
+	if ((_map[i][j+1] == true) && (j + 1 < _n)) 
 		neighbour++;
 
 }

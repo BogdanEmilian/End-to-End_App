@@ -144,8 +144,8 @@
     <ClCompile Include="GameOfLife.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Cell.h" />
-    <ClInclude Include="GameOfLife.h" />
+    <ClInclude Include="Cell.hpp" />
+    <ClInclude Include="GameOfLife.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

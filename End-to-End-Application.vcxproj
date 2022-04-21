@@ -147,6 +147,9 @@
     <ClInclude Include="Cell.hpp" />
     <ClInclude Include="GameOfLife.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\Downloads\EvolvingStageCellsCrossing.jpg" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -4,14 +4,13 @@
 class GameOfLife
 {
 public:
-	GameOfLife(int);
-	void evolvingStage();
+	GameOfLife(int);			//initialization
+	void evolvingStage();		//a step in the evolution
 	void setValue(int, int);
 	void setGlider(int, int);
 	bool** getMap();
 	void setBlock(int, int);
 	void setGliderGun(int, int);
-
 
 private:
 	bool** _map;
@@ -40,211 +39,53 @@ void GameOfLife::evolvingStage()
 
 	memcpy(_tempMap, _map, sizeof(_map));
 
-	//SPLITING FOR LOOPS FOR EACH CASE OF POSITION IN THE MATRIX
-
-	//Top-Left Corner
-	{
-		if ((_map[1][0] == true) && (_map[0][1] == true) && (_map[1][1] == true))
-		{
-			_tempMap[0][0] = true;
-		}
-	}
-
-	//Top-Right Corner
-	{
-		if ((_map[_n - 2][0] == true) && (_map[_n - 2][1] == true) && (_map[_n - 1][1] == true))
-		{
-			_tempMap[_n - 1][0] = true;
-		}
-	}
-
-	//Bottom-Right Corner
-	{
-		if ((_map[_n - 2][_n - 2] == true) && (_map[_n - 1][_n - 2] == true) && (_map[_n - 2][_n - 1] == true))
-		{
-			_tempMap[_n - 1][_n - 1] = true;
-		}
-	}
-
-	//Bottom-Left Corner
-	{
-		if ((_map[0][_n - 2] == true) && (_map[1][_n - 2] == true) && (_map[1][_n - 1] == true))
-		{
-			_tempMap[0][_n - 1] = true;
-		}
-	}
-
-	//Top Side
-	for (int x = 1; x < _n - 1; x++)
-	{
-		_neighbour = 0;
-
-		if (_map[x - 1][0] == true)
-		{
-			_neighbour++;
-		}
-		if (_map[x - 1][1] == true)
-		{
-			_neighbour++;
-		}
-		if (_map[x][1] == true)
-		{
-			_neighbour++;
-		}
-		if (_map[x + 1][1] == true)
-		{
-			_neighbour++;
-		}
-		if (_map[x + 1][0] == true)
-		{
-			_neighbour++;
-		}
-
-		if (_neighbour >= 3)
-		{
-			_tempMap[x][0] = true;
-		}
-	}
-
-	//Right Side
+	//Center of the matrix scanning
 	for (int y = 1; y < _n - 1; y++)
 	{
-		_neighbour = 0;
-
-		if (_map[_n - 1][y - 1] == true)
+		for (int x = 1; x < _n - 1; x++)
 		{
-			_neighbour++;
-		}
-		if (_map[_n - 2][y - 1] == true)
-		{
-			_neighbour++;
-		}
-		if (_map[_n - 2][y] == true)
-		{
-			_neighbour++;
-		}
-		if (_map[_n - 2][y + 1] == true)
-		{
-			_neighbour++;
-		}
-		if (_map[_n - 1][y + 1] == true)
-		{
-			_neighbour++;
-		}
-
-		if (_neighbour >= 3)
-		{
-			_tempMap[_n - 1][y] = true;
-		}
-	}
-
-	//Bottom Side
-	for (int x = 0; x < _n - 1; x++)
-	{
-		_neighbour = 0;
-
-		if (_map[x - 1][_n - 1] == true)
-		{
-			_neighbour++;
-		}
-		if (_map[x - 1][_n - 2] == true)
-		{
-			_neighbour++;
-		}
-		if (_map[x][_n - 2] == true)
-		{
-			_neighbour++;
-		}
-		if (_map[x + 1][_n - 2] == true)
-		{
-			_neighbour++;
-		}
-		if (_map[x + 1][_n - 1] == true)
-		{
-			_neighbour++;
-		}
-
-		if (_neighbour >= 3)
-		{
-			_tempMap[x][_n - 1] = true;
-		}
-	}
-
-	//Left Side
-	for (int y = 1; y < _n - 1; y++)
-	{
-		_neighbour = 0;
-
-		if (_map[0][y - 1] == true)
-		{
-			_neighbour++;
-		}
-		if (_map[1][y - 1] == true)
-		{
-			_neighbour++;
-		}
-		if (_map[1][y] == true)
-		{
-			_neighbour++;
-		}
-		if (_map[1][y + 1] == true)
-		{
-			_neighbour++;
-		}
-		if (_map[0][y + 1] == true)
-		{
-			_neighbour++;
-		}
-
-		if (_neighbour >= 3)
-		{
-			_tempMap[0][y] = true;
-		}
-	}
-
-	
-	//Center of the matrix
-	for (int y = 0; y < _n; y++) {
-		for (int x = 0; x < _n; x++) {
-			
 			_neighbour = 0;
 
 			if (_map[x - 1][y - 1] == true)
-			{
-				_neighbour++;
-			}
+				{
+					_neighbour++;
+				}
 			if (_map[x][y - 1] == true)
-			{
-				_neighbour++;
-			}
+				{
+					_neighbour++;
+				}
 			if (_map[x + 1][y - 1] == true)
-			{
-				_neighbour++;
-			}
+				{
+					_neighbour++;
+				}
 			if (_map[x - 1][y] == true)
-			{
-				_neighbour++;
-			}
+				{
+					_neighbour++;
+				}
 			if (_map[x + 1][y] == true)
-			{
-				_neighbour++;
-			}
+				{
+					_neighbour++;
+				}
 			if (_map[x - 1][y + 1] == true)
-			{
-				_neighbour++;
-			}
+				{
+					_neighbour++;
+				}
 			if (_map[x][y + 1] == true)
-			{
-				_neighbour++;
-			}
+				{
+					_neighbour++;
+				}
 			if (_map[x + 1][y + 1] == true)
-			{
-				_neighbour++;
-			}
+				{
+					_neighbour++;
+				}
 
 			if (_neighbour >= 3)
 			{
-				_tempMap[x][y] = true;
+				_tempMap[x][y] = true;	//alive cell
+			}
+			else
+			{
+				_tempMap[x][y] = false;	//dead cell
 			}
 		}
 	}

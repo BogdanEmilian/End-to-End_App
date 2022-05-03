@@ -1,1 +1,1 @@
-#include "GameOfLife.h"
+#include "GameOfLife.hpp"

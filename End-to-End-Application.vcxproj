@@ -139,12 +139,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Cell.cpp" />
     <ClCompile Include="End-to-End-Application.cpp" />
     <ClCompile Include="GameOfLife.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Cell.hpp" />
     <ClInclude Include="GameOfLife.hpp" />
   </ItemGroup>
   <ItemGroup>
